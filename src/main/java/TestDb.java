@@ -8,15 +8,14 @@ public class TestDb {
 		String password = "password";
 		String connString = "jdbc:mysql://" + "localhost" + ":" + "3306" + "/"
 				+ "fitnesstracker";
-		String JDBCDriver = "com.mysql.jdbc.Driver";
+		String JDBCDriver = "com.mysql.cj.jdbc.Driver";
 
 		try {
 			// Try and load the JDBC driver
 			Class.forName(JDBCDriver);
 
 			// Try and actually connect
-			Connection con = DriverManager.getConnection(connString, username,
-					password);
+			DriverManager.getConnection(connString, username, password);
 			System.out.println("Connected Successfully");
 		} catch (SQLException ex) {
 			System.out.println(ex);

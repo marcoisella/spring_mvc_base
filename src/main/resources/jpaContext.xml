@@ -7,6 +7,8 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
 
 	<context:annotation-config />
+	
+	<context:component-scan base-package="com.pluralsight"/>
 
 	<bean
 		class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
@@ -24,7 +26,7 @@
 		<property name="jpaPropertyMap">
 			<map>
 				<entry key="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
-				<entry key="hibernate.hbm2ddl.auto" value="create" />
+				<entry key="hibernate.hbm2ddl.auto" value="create-drop"/>
 				<entry key="hibernate.format_sql" value="true" />
 			</map>
 		</property>
@@ -35,10 +37,10 @@
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
 
-	<tx:annotation-driven transaction-manager="transactionManagre" />
+	<tx:annotation-driven transaction-manager="transactionManager" />
 	
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
 		<property name="url" value="jdbc:mysql://localhost:3306/fitnesstracker?autoReconnect=true"/>
 		<property name="username" value="root"/>
 		<property name="password" value="password"/>
