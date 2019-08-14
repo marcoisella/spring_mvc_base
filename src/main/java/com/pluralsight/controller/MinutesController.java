@@ -2,6 +2,7 @@ package com.pluralsight.controller;
 
 import java.util.List;
 
+import javax.persistence.FetchType;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
